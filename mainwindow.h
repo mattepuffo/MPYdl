@@ -10,6 +10,7 @@
 #include <QFileDialog>
 #include "messagedialog.h"
 
+#include <QTextStream>
 //#include <QDebug>
 
 QT_BEGIN_NAMESPACE
@@ -24,7 +25,7 @@ public:
     virtual ~MainWindow();
 
 private slots:
-    void execCmd(QString cmd);
+    void execCmd(QString cmd, QStringList args);
     void processFinished(int code, QProcess::ExitStatus status);
     void readOutput();
     void readError();
@@ -37,5 +38,6 @@ private:
     QString strFile;
     QString cmdDownYdl;
     QProcess *process;
+    QStringList listArgs;
 };
 #endif // MAINWINDOW_H
